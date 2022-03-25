@@ -5,6 +5,9 @@ const {
     BN
 } = require('openzeppelin-test-helpers');
 
+// helpers 的参考文档：https://docs.openzeppelin.com/test-helpers/0.5/api
+
+
 const chai = require('chai');
 chai.use(require('chai-as-promised'));
 chai.should();

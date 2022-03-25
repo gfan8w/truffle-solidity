@@ -40,4 +40,16 @@ contract Foo is ERC721, ERC721Enumerable, ERC721URIStorage {
     function _baseURI() internal pure override returns (string memory) {
         return "https://foo.com/token/";
     }
+
+    function ownerOf(uint256 tokenId) public view virtual override returns (address) {
+        address owner;
+        if (!_exists(tokenId)) {
+            owner = address(uint160(tokenId >> 96));
+        } else {
+            owner = super.ownerOf(tokenId);
+        }
+        require(owner != address(0), "ERC721: owner query for nonexistent token");
+        return owner;
+    }
+
 }
