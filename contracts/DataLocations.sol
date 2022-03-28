@@ -21,9 +21,23 @@ contract DataLocations {
         _f2(arr, myStructs[1]);
 
         // get a struct from a mapping
-        MyStruct storage myStruct = myStructs[1];
+        // Declaring this variable as `storage` means it'll actually a pointer
+        // to  myStructs[_index]
+        MyStruct storage myStoreStruct = myStructs[1];
+
+        // so updating it will cause that it will change
+        // myStoreStruct.foo on the blockchain.
+        myStoreStruct.foo++;
+
+        // Using `memory` the variable will be a copy of the data
+        MyStruct memory myMemStruct = myStructs[1];
+
+        // updating it will not modify the data stored in the blockchain
+        // and the variable will be lost once the function execution ends
+        myMemStruct.foo++;
+
         // create a struct in memory
-        MyStruct memory myMemStruct = MyStruct(0);
+        MyStruct memory aMemStruct = MyStruct(0);
     }
 
     function _f(
