@@ -10,6 +10,7 @@ contract Storage {
     function setValue(uint v) public {
         val = v;
     }
+
 }
 
 

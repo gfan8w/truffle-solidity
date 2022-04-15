@@ -45,7 +45,21 @@ contract AndOrShift {
         return Strings.toHexString(uint(result), 20);
     }
 
+    function shift() public pure returns(uint256) {
+        uint256 a = 1;
+        uint256 b = 18;
+        uint256 result = a<<b;
+        return result;
+    }
 
+    function multi() public pure returns(uint256) {
+        uint256 a = 1;
+        uint256 b = 18;
+        for(uint256 i=1;i<=18;i++){
+            a=a*10;
+        }
+        return a;
+    }
 
 
 }

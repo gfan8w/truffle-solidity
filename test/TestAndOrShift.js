@@ -28,14 +28,14 @@ contract('AndOrShift', accounts => {
 
             let foo=await AndOrShift.and();
             console.log("and:",foo.toString());
-            const events = await AndOrShift.getPastEvents();
-            //console.log(events);
-
-            console.log(`event index[${i}]: ${e.event}`)
-
-            for (const [key, value] of Object.entries(e.args)) {
-                console.log(` - ${key}: ${value}`);
-            }
+            // const events = await AndOrShift.getPastEvents();
+            // //console.log(events);
+            //
+            // console.log(`event index[${i}]: ${e.event}`)
+            //
+            // for (const [key, value] of Object.entries(e.args)) {
+            //     console.log(` - ${key}: ${value}`);
+            // }
         });
 
 
@@ -53,7 +53,19 @@ contract('AndOrShift', accounts => {
 
         });
 
+        it('shift', async () => {
 
+            let foo=await AndOrShift.shift();
+            console.log("shift 1<<18",foo.toString());
+
+        });
+
+        it('multi()', async () => {
+
+            let foo=await AndOrShift.multi();
+            console.log("multi()",foo.toString());
+
+        });
     });
 
 
